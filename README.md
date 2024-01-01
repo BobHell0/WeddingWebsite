@@ -1,2 +1,2 @@
 # WeddingWebsite
-Website for Dharani akka and Ashanth anna's wedding. 
+Website for Dhivya akka and Ashanth anna's wedding. 
