@@ -1,0 +1,179 @@
+@font-face {
+    font-family: poiret_one;
+    src: url(fonts/titles/poiret-one/PoiretOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: Maghfirea;
+    src: url(fonts/bannerText/Maghfirea.ttf);
+}
+
+@keyframes bannerAnimation {
+    from {background-color: white;}
+    to {background-color: #b5c9bb;}
+}
+
+body {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+
+    background-color: white;
+}
+
+.bannerDiv {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    padding: 0;
+    z-index: 3;
+
+}
+
+.bannerSegment {
+    width: 25vw;/* 100 / (# of segments) */
+    height: 8vh;
+    background-color: white;
+   
+    text-align: center;
+    line-height: 8vh;
+    font-size: 30px;
+    font-family: Maghfirea;
+    cursor: pointer;
+}
+
+#bannerSegmentHome {
+    position: absolute;
+    left: 0%;
+}
+
+
+#bannerSegmentGallery {
+    position: absolute;
+    left: 25vw;
+}
+
+#bannerSegmentWD {
+    position: absolute;
+    left: 50vw;
+
+}
+
+#bannerSegmentRSVP {
+    position: absolute;
+    left: 75vw;
+}
+
+.bannerSegment:hover {
+    position: absolute;
+    animation: bannerAnimation 1s 1;
+    background-color: #b5c9bb;
+    color: white;
+    font-size: 48px;
+}
+
+#homeDiv {
+    position: static;
+    width: 100vw;
+    height: 100vh;
+
+
+}
+
+.mainImage {
+    position: relative;
+    width: 100vw; 
+    top: 0;
+    left: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0;
+    display: block;
+
+}
+
+#title {
+    position: absolute;
+    width: 84vh;
+    top: 15vh;
+    left: 50%;
+    margin-left: -42vh;
+    text-align: center;
+    display: inline-block;
+    
+    color: black;
+    font-family: poiret_one;
+    font-size: 80px;
+    z-index: 2;
+}
+
+#countdownContainer {
+    width: 100vw;
+    height: 20vh;
+    
+
+}
+
+.countdownPanel {
+    position: relative;
+    width: 8vw;
+    height: 20vh;
+    border: 2px solid black;
+
+    text-align: center;
+    font-size: 2vw;
+}
+
+#countdownDays {
+    position: absolute;
+    left: 34vw;
+}
+
+#countdownHours {
+    position: absolute;
+    left: 42vw;
+}
+
+#countdownMinutes {
+    position: absolute;
+    left: 50vw;
+}
+
+#countdownSeconds {
+    position: absolute;
+    left: 58vw;
+}
+
+.countdownText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 80%;
+    margin-top: -15%;
+    margin-left: -40%;
+
+   
+    text-align: center;
+
+}
+
+#DayText {
+    vertical-align: baseline;
+}
+
+#HourText {
+    vertical-align: baseline;
+}
+
+#MinuteText {
+    vertical-align: baseline;
+}
+
+#SecondText {
+    vertical-align: baseline;
+}
