@@ -8,6 +8,10 @@
     src: url(fonts/bannerText/Maghfirea.ttf);
 }
 
+@font-face {
+    font-family: unitblock;
+    src: url(fonts/unitblock-font/Unitblock-mLAwm.ttf);
+}
 /* 
 @keyframes bannerAnimation {
     from {background-color: white;}
@@ -74,7 +78,7 @@ body {
     background-position: bottom;
     transition: all 0.8s ease;
     background-color: #b5c9bb;
-    color: #edc0c8;
+    color: #525252;
     font-size: 4vw;
 }
 
@@ -143,6 +147,7 @@ body {
     width: 50%;
     left: 50%;
     margin-left: -25%;
+    font-family: unitblock;
 }
 
 #countdownDays {
