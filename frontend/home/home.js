@@ -1,5 +1,4 @@
 
-
 var weddingDate = new Date ("Jan 1 , 2025 11:00:00").getTime();
 var x = setInterval(() => {
     var now = new Date().getTime();
@@ -22,10 +21,11 @@ var x = setInterval(() => {
         seconds = 0;
     }
 
-    document.getElementById("DayText").innerHTML = days;
-    document.getElementById("HourText").innerHTML = hours;
-    document.getElementById("MinuteText").innerHTML = minutes;
-    document.getElementById("SecondText").innerHTML = seconds;
+    const dayText = document.getElementById("DayText");
+    dayText.textContent = days;
+    document.getElementById("HourText").textContent = hours;
+    document.getElementById("MinuteText").textContent = minutes;
+    document.getElementById("SecondText").textContent = seconds;
 
 }, 1000);
 

@@ -8,10 +8,11 @@
     src: url(fonts/bannerText/Maghfirea.ttf);
 }
 
+/* 
 @keyframes bannerAnimation {
     from {background-color: white;}
-    to {background-color: #b5c9bb;}
-}
+    to {background-color: #cef5d8;}
+} */
 
 body {
     padding: 0px;
@@ -19,8 +20,7 @@ body {
     margin: 0px;
     width: 100%;
     height: 100vh;
-
-    background-color: white;
+    background-color: #dff2e3;
 }
 
 .bannerDiv {
@@ -36,11 +36,12 @@ body {
 .bannerSegment {
     width: 25vw;/* 100 / (# of segments) */
     height: 8vh;
-    background-color: white;
-   
+
+    background: linear-gradient(to bottom, white 50%, #dff2e3 50%) top;
+    background-size: 100% 200%;
     text-align: center;
     line-height: 8vh;
-    font-size: 30px;
+    font-size: 3vw;
     font-family: Maghfirea;
     cursor: pointer;
 }
@@ -69,23 +70,24 @@ body {
 
 .bannerSegment:hover {
     position: absolute;
-    animation: bannerAnimation 1s 1;
+    /* animation: bannerAnimation 1s 1; */
+    background-position: bottom;
+    transition: all 0.8s ease;
     background-color: #b5c9bb;
-    color: white;
-    font-size: 48px;
+    color: #edc0c8;
+    font-size: 4vw;
 }
 
 #homeDiv {
-    position: static;
+    position: relative;
     width: 100vw;
     height: 100vh;
-
-
 }
 
 .mainImage {
     position: relative;
     width: 100vw; 
+    height: 100vh;
     top: 0;
     left: 0;
 
@@ -98,23 +100,29 @@ body {
 
 #title {
     position: absolute;
-    width: 84vh;
+    width: 90vw;
     top: 15vh;
     left: 50%;
-    margin-left: -42vh;
+    margin-left: -45vw;
     text-align: center;
     display: inline-block;
     
     color: black;
     font-family: poiret_one;
-    font-size: 80px;
+    font-size: 8vw;
     z-index: 2;
 }
 
 #countdownContainer {
-    width: 100vw;
+    position: relative;
+    top: 10vh;
+    width: 40vw;
+    left: 50%;
+    margin-left: -20vw;
     height: 20vh;
-    
+    border: 2px solid black;
+    border-radius: 8vw;
+    background-color: #cef5d8;
 
 }
 
@@ -122,30 +130,39 @@ body {
     position: relative;
     width: 8vw;
     height: 20vh;
-    border: 2px solid black;
+    
 
     text-align: center;
     font-size: 2vw;
 }
 
+.countdownWord {
+    position: absolute;
+    bottom: 2vh;
+    font-size: 1vw;
+    width: 50%;
+    left: 50%;
+    margin-left: -25%;
+}
+
 #countdownDays {
     position: absolute;
-    left: 34vw;
+    left: 4vw;
 }
 
 #countdownHours {
     position: absolute;
-    left: 42vw;
+    left: 12vw;
 }
 
 #countdownMinutes {
     position: absolute;
-    left: 50vw;
+    left: 20vw;
 }
 
 #countdownSeconds {
     position: absolute;
-    left: 58vw;
+    left: 28vw;
 }
 
 .countdownText {
@@ -156,8 +173,8 @@ body {
     width: 80%;
     margin-top: -15%;
     margin-left: -40%;
+    font-family: unitblock;
 
-   
     text-align: center;
 
 }
