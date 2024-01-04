@@ -41,9 +41,6 @@ document.addEventListener("scroll", (event) => {
         mainImage.style.position = "fixed";
         mainImage.style.top = "0vh";
         mainImage.style.left = "0";
-
-
-
     }
 })
 
