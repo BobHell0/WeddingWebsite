@@ -1,0 +1,223 @@
+@font-face {
+    font-family: poiret_one;
+    src: url(fonts/titles/poiret-one/PoiretOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: Maghfirea;
+    src: url(fonts/bannerText/Maghfirea.ttf);
+}
+
+@font-face {
+    font-family: unitblock;
+    src: url(fonts/countdown/Unitblock-mLAwm.ttf);
+}
+
+@font-face {
+    font-family: stalemate;
+    src: url(fonts/titles/stalemate-font/Stalemate-4dEx.ttf);
+}
+/* 
+@keyframes bannerAnimation {
+    from {background-color: white;}
+    to {background-color: #cef5d8;}
+} */
+
+body {
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    background-color: #dff2e3;
+}
+
+.bannerDiv {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    padding: 0;
+    z-index: 3;
+}
+
+.bannerSegment {
+    width: 25vw;/* 100 / (# of segments) */
+    height: 8vh;
+
+    background: linear-gradient(to bottom, white 50%, #dff2e3 50%) top;
+    background-size: 100% 200%;
+    text-align: center;
+    line-height: 8vh;
+    font-size: 3vw;
+    font-family: Maghfirea;
+    cursor: pointer;
+}
+
+#bannerSegmentHome {
+    position: absolute;
+    left: 0%;
+}
+
+
+#bannerSegmentGallery {
+    position: absolute;
+    left: 25vw;
+}
+
+#bannerSegmentWD {
+    position: absolute;
+    left: 50vw;
+
+}
+
+#bannerSegmentRSVP {
+    position: absolute;
+    left: 75vw;
+}
+
+.bannerSegment:hover {
+    position: absolute;
+    /* animation: bannerAnimation 1s 1; */
+    background-position: bottom;
+    transition: all 0.3s ease;
+    background-color: #b5c9bb;
+    color: #525252;
+    font-size: 4vw;
+}
+
+#homeDiv {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+}
+
+#mainImage {
+    position: fixed;
+    width: 100vw; 
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0;
+    display: block;
+
+}
+
+.title {
+    position: absolute;
+    width: 100vw;
+    height: 20vh;
+    left: 50%;
+    margin-left: -50vw;
+    display: inline-block;
+
+    text-align: center;
+    color: white;
+    font-family: stalemate;
+    font-weight: 100;
+
+    z-index: 2;
+}
+
+#mainTitle {
+    position: absolute;
+    top: 15vh;
+    font-size: calc(7vh + 8vw);
+}
+
+#subTitle {
+    position: absolute;
+    top: 50vh;
+    font-size: calc(4vw + 4vh);
+}
+
+#dateTitle {
+    position: absolute;
+    bottom: 10vh;
+    font-size: calc(4vw + 4vh);
+}
+
+
+#countdownContainer {
+    position: relative;
+    top: 100vh;
+    width: 40vw;
+    left: 50%;
+    margin-left: -20vw;
+    height: calc(10vh + 10vw);
+    border: 2px solid black;
+    border-radius: 8vw;
+    background-color: #cef5d8;
+
+}
+
+.countdownPanel {
+    position: relative;
+    width: 8vw;
+    height: calc(10vh + 10vw);
+    
+
+    text-align: center;
+    font-size: 2vw;
+}
+
+.countdownWord {
+    position: absolute;
+    bottom: 2vh;
+    font-size: 1vw;
+    width: 50%;
+    left: 50%;
+    margin-left: -25%;
+    font-family: unitblock;
+}
+
+#countdownDays {
+    position: absolute;
+    left: 4vw;
+}
+
+#countdownHours {
+    position: absolute;
+    left: 12vw;
+}
+
+#countdownMinutes {
+    position: absolute;
+    left: 20vw;
+}
+
+#countdownSeconds {
+    position: absolute;
+    left: 28vw;
+}
+
+.countdownText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 80%;
+    margin-top: -15%;
+    margin-left: -40%;
+    font-family: unitblock;
+
+    text-align: center;
+
+}
+
+#DayText {
+    vertical-align: baseline;
+}
+
+#HourText {
+    vertical-align: baseline;
+}
+
+#MinuteText {
+    vertical-align: baseline;
+}
+
+#SecondText {
+    vertical-align: baseline;
+}
