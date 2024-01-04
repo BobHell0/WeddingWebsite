@@ -10,7 +10,12 @@
 
 @font-face {
     font-family: unitblock;
-    src: url(fonts/unitblock-font/Unitblock-mLAwm.ttf);
+    src: url(fonts/countdown/Unitblock-mLAwm.ttf);
+}
+
+@font-face {
+    font-family: stalemate;
+    src: url(fonts/titles/stalemate-font/Stalemate-4dEx.ttf);
 }
 /* 
 @keyframes bannerAnimation {
@@ -22,8 +27,6 @@ body {
     padding: 0px;
     border: 0px;
     margin: 0px;
-    width: 100%;
-    height: 100vh;
     background-color: #dff2e3;
 }
 
@@ -34,7 +37,6 @@ body {
     width: 100vw;
     padding: 0;
     z-index: 3;
-
 }
 
 .bannerSegment {
@@ -76,7 +78,7 @@ body {
     position: absolute;
     /* animation: bannerAnimation 1s 1; */
     background-position: bottom;
-    transition: all 0.8s ease;
+    transition: all 0.3s ease;
     background-color: #b5c9bb;
     color: #525252;
     font-size: 4vw;
@@ -86,15 +88,15 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
+    background-color: red;
 }
 
-.mainImage {
-    position: relative;
+#mainImage {
+    position: fixed;
     width: 100vw; 
     height: 100vh;
     top: 0;
     left: 0;
-
     margin-left: auto;
     margin-right: auto;
     padding-top: 0;
@@ -102,28 +104,48 @@ body {
 
 }
 
-#title {
+.title {
     position: absolute;
-    width: 90vw;
-    top: 15vh;
+    width: 100vw;
+    height: 20vh;
     left: 50%;
-    margin-left: -45vw;
-    text-align: center;
+    margin-left: -50vw;
     display: inline-block;
-    
-    color: black;
-    font-family: poiret_one;
-    font-size: 8vw;
+
+    text-align: center;
+    color: white;
+    font-family: stalemate;
+    font-weight: 100;
+
     z-index: 2;
 }
 
+#mainTitle {
+    position: absolute;
+    top: 15vh;
+    font-size: calc(7vh + 8vw);
+}
+
+#subTitle {
+    position: absolute;
+    top: 50vh;
+    font-size: calc(4vw + 4vh);
+}
+
+#dateTitle {
+    position: absolute;
+    bottom: 10vh;
+    font-size: calc(4vw + 4vh);
+}
+
+
 #countdownContainer {
     position: relative;
-    top: 10vh;
+    top: 100vh;
     width: 40vw;
     left: 50%;
     margin-left: -20vw;
-    height: 20vh;
+    height: calc(10vh + 10vw);
     border: 2px solid black;
     border-radius: 8vw;
     background-color: #cef5d8;
@@ -133,7 +155,7 @@ body {
 .countdownPanel {
     position: relative;
     width: 8vw;
-    height: 20vh;
+    height: calc(10vh + 10vw);
     
 
     text-align: center;

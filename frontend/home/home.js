@@ -29,4 +29,24 @@ var x = setInterval(() => {
 
 }, 1000);
 
+document.addEventListener("scroll", (event) => {
+    var dateText = document.getElementById("dateTitle")
+    var mainImage = document.getElementById("mainImage");
+    if (dateText.getBoundingClientRect().top < -dateText.clientHeight) {
+        
+        mainImage.style.position = "absolute";
+        mainImage.style.top = "90vh";
+        mainImage.style.left = "0";
+    } else {
+        mainImage.style.position = "fixed";
+        mainImage.style.top = "0vh";
+        mainImage.style.left = "0";
+
+
+
+    }
+})
+
+
+
 
