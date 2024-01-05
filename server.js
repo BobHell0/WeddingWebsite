@@ -37,18 +37,24 @@ app.post('/login-submission', async (req, res) => {
 
     const { firstName, lastName } = req.body;
 
+
+    // randomFunction();
+
     const db = await getDatabaseRows();
 
     console.log(db);
 
     const guest = db.find((curr) => {
-        if (curr[0] === firstName && curr[1] === lastName) {
+        if (curr[0].toLowerCase() === firstName.toLowerCase() 
+            && curr[1].toLowerCase() === lastName.toLowerCase()) {
             return curr;
         }
     });
 
     if (guest === undefined) console.log(':(');
     else console.log(':D');
+
+    res.send("json");
 
 });
 
