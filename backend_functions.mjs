@@ -8,8 +8,6 @@ export async function getDatabaseRows() {
     
     const client = await auth.getClient(); 
 
-    // return client
-
     const spreadsheetId = "1mUMi6oCo-z3Gr7rlYDii5cC1ZxJa3jwN1RTCbM2m7mU";
     
     const googleSheets = google.sheets({
@@ -17,12 +15,6 @@ export async function getDatabaseRows() {
         auth: client
     });
 
-    
-    // const meta = await googleSheets.spreadsheets.get({
-    //     auth: auth,
-    //     spreadsheetId: spreadsheetId,
-    // });
-    
     const getRows = await googleSheets.spreadsheets.values.get({
         auth,
         spreadsheetId,
@@ -31,9 +23,4 @@ export async function getDatabaseRows() {
 
 
     return getRows.data.values;
-}
-
-export function randomFunction() {
-    console.log('Hello Mr Bean');
-
 }

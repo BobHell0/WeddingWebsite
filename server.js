@@ -9,6 +9,7 @@ const app = express();
 // const path = require('path');
 
 import { getDatabaseRows } from './backend_functions.mjs';
+import { error } from 'console';
 
 const PORT = 3000;
 
@@ -33,12 +34,10 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend/loginPage/login.html'));
 });
 
-app.post('/login-submission', async (req, res) => {
+app.get('/login-submission', async (req, res) => {
 
-    const { firstName, lastName } = req.body;
-
-
-    // randomFunction();
+    const firstName = req.query.fn;
+    const lastName = req.query.ln;
 
     const db = await getDatabaseRows();
 
@@ -51,10 +50,20 @@ app.post('/login-submission', async (req, res) => {
         }
     });
 
-    if (guest === undefined) console.log(':(');
-    else console.log(':D');
 
-    res.send("json");
+    if (guest === undefined) {
+        console.log(':(');
+        return res.status(401).send({
+            message: 'Name not found. If you believe there may be a mistake, '
+            + 'kindly contact the bride and groom' 
+            + ' but not me, because I am just a small boi'
+        })
+    } else {
+        console.log(':)')
+        return res.status(200).send({
+            message: 'all good'
+        });
+    }
 
 });
 
