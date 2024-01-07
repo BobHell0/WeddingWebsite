@@ -1,0 +1,91 @@
+@font-face {
+    font-family: aspergit;
+    src: url(fonts/title/aspergit-font/AspergitLight-Y0oy.otf);
+}
+
+body {
+    background-color: #d0c8e3;
+
+}
+
+#loginTitle {
+    width: 50vw;
+    position: relative;
+    left: 50%;
+    margin-left: -25vw;
+
+    font-size: calc(5vw + 3vh);
+    font-family: aspergit;
+    font-variant: aspergit;
+    text-align: center;
+
+}
+
+#loginForm {
+    top: -0vh;
+    position: relative;
+    left: 50%;
+    margin-left: -40vw;
+    width: 80vw;
+    height: 65vh;
+    /* background-color: #d0c8e3; */
+
+    /* border: 2px black solid;  */
+
+}
+
+.inputBox {
+    position: absolute;
+    left: 50%;
+    width: 26vw;
+    margin-left: -13vw;
+    height: 5vh;
+    
+    
+    /* padding: 4vh 0; */
+
+
+    font-size: calc(2vw + 1vh);
+    font-family: aspergit;
+    border: none;
+    border-bottom: 2px black solid; 
+    outline: none;
+    text-align: center;
+    background-color: #d0c8e3;
+}
+
+#firstName {
+    top: 5vh;
+}
+
+#lastName {
+    top: 25vh;
+}
+
+#submitButton {
+    position: absolute;
+    left: 50%;
+    width: 16vw;
+    margin-left: -8vw;
+    padding: 1vw;
+    font-size: calc(1vw + 1vh);
+    font-family: aspergit;
+    height: 12vh;
+    top: 45vh;
+    background-color: #d9bfe3;
+    border: none;
+}
+
+#submitButton:hover {
+    background-color: yellow;
+}
+
+
+/*
+    potential background colours:
+        - #f2dcfa
+        - #d0c8e3
+
+*/
+
+
