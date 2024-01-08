@@ -1,8 +1,13 @@
+import * as url from 'url';
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
 import { google } from "googleapis";
+
+
 
 export async function getDatabaseRows() {
     const auth = new google.auth.GoogleAuth({ 
-        keyFile: "credentials.json",
+        keyFile: __dirname + "credentials.json",
         scopes: ["https://www.googleapis.com/auth/spreadsheets"]
     })
     

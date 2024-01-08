@@ -5,39 +5,39 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 
+
+
 const app = express();
 // const path = require('path');
 
 import { getDatabaseRows } from './backend_functions.mjs';
-import { error } from 'console';
 
 const PORT = 3000;
 
 // Middleware
 app.use(cors());
 
-app.use(express.urlencoded({ 
-    extended: false,
-    limit: 10000,
-    parameterLimit: 2 
-}));
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: false, limit: 10000, parameterLimit: 2 }));
  
-
-app.use(express.static('frontend/home'));
-app.use(express.static('frontend/loginPage'));
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/home/home.html'));
+    console.log(__dirname);
+    res.sendFile(path.join(__dirname, '/views/home.html'));
+
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/loginPage/login.html'));
+    res.sendFile(path.join(__dirname, '/views/login.html'));
 });
 
-app.get('/login-submission', async (req, res) => {
-
-    const firstName = req.query.fn;
-    const lastName = req.query.ln;
+app.post('/login-submission', async (req, res) => {
+    console.log(req.body);
+    const firstName = req.body.firstName
+    const lastName = req.body.lastName;
+    
+    console.log(firstName);
 
     const db = await getDatabaseRows();
 
@@ -50,21 +50,14 @@ app.get('/login-submission', async (req, res) => {
         }
     });
 
-
     if (guest === undefined) {
         console.log(':(');
-        return res.status(401).send({
-            message: 'Name not found. If you believe there may be a mistake, '
-            + 'kindly contact the bride and groom' 
-            + ' but not me, because I am just a small boi'
-        })
+        return res.status(401).send({ message: 'Invalid login' })
     } else {
         console.log(':)')
-        return res.status(200).send({
-            message: 'all good'
-        });
+        console.log(__dirname)
+        return res.status(200).send({ message: 'Successful login' })
     }
-
 });
 
 

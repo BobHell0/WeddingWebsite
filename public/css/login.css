@@ -1,6 +1,6 @@
 @font-face {
     font-family: aspergit;
-    src: url(fonts/title/aspergit-font/AspergitLight-Y0oy.otf);
+    src: url(fonts/titles/aspergit-font/AspergitLight-Y0oy.otf);
 }
 
 body {
@@ -28,9 +28,6 @@ body {
     margin-left: -40vw;
     width: 80vw;
     height: 65vh;
-    /* background-color: #d0c8e3; */
-
-    /* border: 2px black solid;  */
 
 }
 
@@ -42,7 +39,6 @@ body {
     height: 5vh;
     
     
-    /* padding: 4vh 0; */
 
 
     font-size: calc(2vw + 1vh);
@@ -72,13 +68,15 @@ body {
     font-family: aspergit;
     height: 12vh;
     top: 45vh;
-    background-color: #d9bfe3;
+    background-color: #d0c8e3;
+    color: #6d6d6d;
     border: none;
 }
 
-#submitButton:hover {
-    background-color: yellow;
-}
+#buttonText:hover {
+    color: black;
+    cursor: pointer;
+} 
 
 
 /*
