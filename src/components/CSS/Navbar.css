@@ -1,0 +1,109 @@
+@font-face {
+    font-family: Maghfirea;
+    src: url(../../assets/fonts/bannerText/Maghfirea.ttf);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    background-color: rgb(206, 206, 206);
+    z-index: 2;
+    font-family: Maghfirea;
+}
+
+.homeSeg {
+    background: linear-gradient(to bottom, transparent 50%, #dff2e3 50%) top;
+    background-size: 100% 200%;
+    display: inline-block;
+    width: 18vw;
+    font-size: calc(1.2vw + 1vh);
+    text-decoration: none;
+
+    line-height: 12vh;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.homeSeg:hover {
+    background-position: bottom;
+    transition: all 0.5s ease;
+    background-color: #b5c9bb;
+    color: #525252;
+    font-size: calc(1.2vw + 1.2vh);
+}
+
+.navbarSeg {
+    width: 16vw;/* 100 / (# of segments) */
+    height: 12vh;
+    
+    background: linear-gradient(to bottom, transparent 50%, #dff2e3 50%) top;
+    background-size: 100% 200%;
+    text-align: center;
+    line-height: 12vh;
+    font-size: calc(1vw + 1vh);;
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.navbarSeg:hover {
+
+    background-position: bottom;
+    transition: all 0.5s ease;
+    background-color: #b5c9bb;
+    color: #525252;
+    font-size: calc(1.2vw + 1vh);
+}
+
+.test {
+    text-decoration: none;
+    color: white;
+}
+
+
+@media (orientation: portrait) {
+    .homeSeg {
+        line-height: 8vh;
+        width: 50vw;
+    }
+
+    .navbarSeg {
+        height: 8vh;
+        line-height: 8vh;
+        width: 22vw;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+    .menuButton {
+        position: absolute;
+        width: 3vh;
+        right: 5%;
+
+        display: inline-block;
+        cursor: pointer;
+    }
+
+
+    .bar1, .bar2, .bar3 {
+        max-width: 40px;
+        width: 100%;
+        height: 0.3vh;
+        background-color: #333;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+}
+
