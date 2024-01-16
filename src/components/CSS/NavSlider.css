@@ -48,5 +48,8 @@
 }
 
 .navSeg:hover {
+    color: white;
+}
+.navSeg:active {
     background-color: red;
 }

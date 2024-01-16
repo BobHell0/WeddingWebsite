@@ -5,7 +5,11 @@ import Layout from "./webpages/Layout";
 
 import Home from "./webpages/home";
 import Gallery from "./webpages/gallery";
+import { useEffect } from "react";
 export default function App() {
+  useEffect(() => {
+    fetch("http://localhost:3000").then((res) => res.json());
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
@@ -16,5 +20,4 @@ export default function App() {
       </Routes>
     </BrowserRouter>
   );
-  // return <Gallery />;
 }

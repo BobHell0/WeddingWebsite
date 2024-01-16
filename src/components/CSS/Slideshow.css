@@ -1,3 +1,8 @@
+@keyframes appear {
+    from {visibility: hidden;}
+    to {visibility: visible;}
+}
+
 .each-slide-effect > div {
     display: flex;
     align-items: center;
@@ -21,4 +26,18 @@
 
 .slideShowImg {
     height: 100%;;
+    max-width: 100%;
 }
+
+/* .arrowStyling {
+    border: none;
+    border-radius: 50%;
+    margin: 3%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.arrowStyling:active {
+    /* background-color: aqua; */
+/* }  */

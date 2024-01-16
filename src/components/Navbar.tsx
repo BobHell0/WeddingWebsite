@@ -1,36 +1,26 @@
 import "./CSS/Navbar.css";
 import NavSlider from "./NavSlider";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const SLIDER_WIDTH = 80;
 
-interface NavbarProps {
-  headings: string[];
-}
 // ["Gallery", "Wedding Details", "RSVP"]
 function Navbar() {
+  let headings = ["Gallery", "Wedding Details", "RSVP"].reverse();
   if (window.outerHeight < window.outerWidth) {
     return (
       <nav>
         <Link className="test" to="/">
           <div className="homeSeg">Dhivya and Ashantth</div>
         </Link>
-        <Link className="test" to="/rsvp">
-          <div className="navbarSeg">RSVP</div>
-        </Link>
-        <Link className="test" to="/weddingdetails">
-          <div className="navbarSeg">Wedding Details</div>
-        </Link>
-        <Link className="test" to="/gallery">
-          <div className="navbarSeg">Gallery</div>
-        </Link>
-
-        {/* {headings.map((item, index) => (
-          <div className="navbarSeg" key={index}>
-            <Link to="/">{item}</Link>
-          </div>
-        ))} */}
+        {headings.map((item, index) => (
+          <Link className="test" to={"/" + item.toLowerCase()} key={index}>
+            <div className="navbarSeg" key={index}>
+              {item}
+            </div>
+          </Link>
+        ))}
       </nav>
     );
   }
@@ -52,9 +42,9 @@ function Navbar() {
   return (
     <>
       <nav>
-        <div className="homeSeg">
-          <a>Dhivya and Ashantth</a>
-        </div>
+        <Link className="test" to="/">
+          <div className="homeSeg">Dhivya and Ashantth</div>
+        </Link>
         <div className="menuButton" onClick={handleClickMenu}>
           <div className="bar1"></div>
           <div className="bar2"></div>

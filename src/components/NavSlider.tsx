@@ -1,4 +1,5 @@
 import "./CSS/NavSlider.css";
+import { Link } from "react-router-dom";
 
 interface NavSliderProp {
   showMenu: boolean;
@@ -27,9 +28,11 @@ export default function NavSlider({
         </span>
       </div>
       {items.map((str, index) => (
-        <div className="navSeg" key={index} style={{ width: `${width}vw` }}>
-          {str}
-        </div>
+        <Link className="test" to={"/" + str.toLowerCase()} key={index}>
+          <div className="navSeg" key={index} style={{ width: `${width}vw` }}>
+            {str}
+          </div>
+        </Link>
       ))}
     </div>
   );

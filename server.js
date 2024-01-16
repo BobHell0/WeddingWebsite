@@ -21,11 +21,11 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: false, limit: 10000, parameterLimit: 2 }));
  
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', (req, res) => {
     console.log(__dirname);
-    res.sendFile(path.join(__dirname, '/views/home.html'));
-
+    res.json({ message: "Hello" });
 });
 
 app.get('/login', (req, res) => {
