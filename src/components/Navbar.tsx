@@ -15,7 +15,11 @@ function Navbar() {
           <div className="homeSeg">Dhivya and Ashantth</div>
         </Link>
         {headings.map((item, index) => (
-          <Link className="test" to={"/" + item.toLowerCase()} key={index}>
+          <Link
+            className="test"
+            to={item === "RSVP" ? "/login" : "/" + item.toLowerCase()}
+            key={index}
+          >
             <div className="navbarSeg" key={index}>
               {item}
             </div>

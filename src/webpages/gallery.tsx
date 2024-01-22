@@ -17,8 +17,8 @@ export default function Gallery() {
       <Navbar></Navbar>
       <div className="slideShowContainer">
         <Slide
-        // prevArrow={<button className="arrowStyling">&lt;</button>}
-        // nextArrow={<button className="arrowStyling">&gt;</button>}
+          prevArrow={<button className="arrowStyling" id="leftArrow"></button>}
+          nextArrow={<button className="arrowStyling" id="rightArrow"></button>}
         >
           {imgArr.map((item, index) => (
             <div className="each-slide-effect" key={index}>

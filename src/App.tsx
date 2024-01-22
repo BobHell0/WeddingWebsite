@@ -5,6 +5,7 @@ import Layout from "./webpages/Layout";
 
 import Home from "./webpages/home";
 import Gallery from "./webpages/gallery";
+import Login from "./webpages/login";
 import { useEffect } from "react";
 export default function App() {
   useEffect(() => {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="gallery" element={<Gallery />} />
+          <Route path="login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>

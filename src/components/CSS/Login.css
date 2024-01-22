@@ -1,0 +1,6 @@
+#mainLoginTitle {
+    position: relative;
+    top: 18vh;
+    font-size: calc(6vw + 4vh);
+    text-align: center;;
+}
