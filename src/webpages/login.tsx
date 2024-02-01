@@ -2,11 +2,7 @@ import "../components/CSS/Login.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-interface LoginProps {
-  prevPageLink: string;
-}
-
-export default function Login({ prevPageLink }: LoginProps) {
+export default function Login() {
   return (
     <>
       {/* <div id="mainLoginTitle">Login</div> */}

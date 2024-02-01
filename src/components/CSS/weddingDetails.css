@@ -1,0 +1,32 @@
+@font-face {
+    font-family: OregonLDO;
+    src: url(../../assets/fonts/weddingDetails/oregon-ldo-font/OregonLdoBook-4BYD.ttf);
+}
+
+#container1 {
+    position: relative;
+    width: 100vw;
+    top: 12vh;
+    /* background-color: green; */
+}
+
+
+#addressContainer {
+    font-family: OregonLDO;
+    display: inline-block;
+    text-align: center;
+    
+}
+
+.addressText {
+    width: 33.33%;
+    position: absolute;
+    top: 33%;
+    left: 66.66%;
+}
+
+@media (orientation: portrait) {
+    #container1 {
+        top: 8vh;
+    }
+}
