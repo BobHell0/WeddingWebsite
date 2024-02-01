@@ -3,15 +3,25 @@
     src: url(../../assets/fonts/weddingDetails/oregon-ldo-font/OregonLdoBook-4BYD.ttf);
 }
 
-#container1 {
-    position: relative;
-    width: 100vw;
-    top: 12vh;
-    /* background-color: green; */
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
+.wdContainer {
+    position: relative;
+    width: 100vw;
+    height: 88vh;
+    top: 12vh;
+    animation-name: fadeIn;
+    animation-duration: 4s;
+}
 
-#addressContainer {
+.wdContainer > img {
+    height: 88vh;
+}
+
+.textContainer {
     font-family: OregonLDO;
     display: inline-block;
     text-align: center;
@@ -25,8 +35,14 @@
     left: 66.66%;
 }
 
+
 @media (orientation: portrait) {
-    #container1 {
+    .wdContainer {
         top: 8vh;
+        height: 25vh;
     }
+    .wdContainer > img {
+        height: 25vh;
+    }
+    
 }
