@@ -1,0 +1,48 @@
+@font-face {
+    font-family: nugoSans;
+    src: url(../../assets/fonts/login/nugo-sans-font/NugoSansLight-9YzoK.ttf);
+}
+
+.break {
+    flex-basis: 110%;
+    height: 0;
+}
+
+#mainLoginTitle {
+    position: relative;
+    top: 40vh;
+    font-size: calc(6vw + 4vh);
+    text-align: center;
+    font-family: nugoSans;
+    margin-bottom: 40vh;
+}
+
+#formContainer {
+    position: relative;
+    top: 40vh;
+}
+
+#loginForm {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.loginInput {
+    text-align: center;
+    width: 300px;
+}
+
+#submitBttn {
+    margin-top: 20px;
+    width: 300px;
+    height: 40px;
+    border: none;
+    background-color: #eaffeb;
+}
+
+#goBack {
+    text-decoration: none;
+}
+
+

@@ -1,0 +1,78 @@
+@font-face {
+    font-family: stalemate;
+    src: url(../../assets/fonts/title/stalemate-font/Stalemate-4dEx.ttf);
+}
+
+.title {
+    position: absolute;
+    width: 100vw;
+    height: 20vh;
+    left: 50%;
+    margin-left: -50vw;
+    display: inline-block;
+
+    text-align: center;
+    color: white;
+    font-family: stalemate;
+
+    z-index: 1;
+}
+
+#mainTitle {
+    position: absolute;
+    top: 15%;
+    font-size: calc(7vh + 8vw);
+}
+
+#subtitle {
+    position: absolute;
+    top: 40%;
+    font-size: calc(6vh + 6vw);
+}
+
+#date {
+    position: absolute;
+    top: 80%;
+    padding-right: 20px;
+    text-align: right;
+    font-size: calc(3vh + 5vw);
+    /* background-color: rgba(38, 158, 67, 0.44) */
+
+    /* background-color: aliceblue; */
+}
+
+
+.bgImage {
+    position: fixed;
+    top: 12vh;
+    height: 88vh;
+    z-index: 0;
+    width: 100%;
+}
+
+.bgContainer {
+    height: 100vh;
+    width: 100vw;
+}
+
+@media (orientation: portrait) {
+    .bgContainer {
+        height: 60vh;
+    }
+    
+    .bgImage {
+        top: 8vh;
+        height: 60vh;
+    }
+
+    #mainTitle {
+        font-size: calc(6vw + 5vh);
+    }
+    #subtitle {
+        font-size: calc(5vw + 4vh);
+    }
+    #date {
+        position: absolute;
+        top: 55vh;
+    }
+}

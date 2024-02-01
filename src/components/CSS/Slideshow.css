@@ -1,0 +1,63 @@
+@keyframes appear {
+    from {visibility: hidden;}
+    to {visibility: visible;}
+}
+
+.each-slide-effect > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 80vh;
+}
+
+.slideShowContainer {
+    /* border: red 0.2px solid; */
+    position: relative;
+    top: 16vh;
+    
+}
+
+.slideShowImgContainer {
+    position: relative;
+    /* border: black 2px solid; */
+    /* width: 60%; */
+}
+
+.slideShowImg {
+    height: 80%;;
+    max-width: 80%;
+}
+
+.arrowStyling {
+    position: absolute;
+    bottom: 0;
+    border: 1px black solid;
+    border-radius: 50%;
+    margin: 3%;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+}
+
+#leftArrow {
+    background-image: url('../../assets/images/galleryImages/leftArrow.svg');
+    background-size: 50px 50px;
+    background-repeat: none;
+    background-position: 10%;
+}
+
+
+#rightArrow {
+    background-image: url('../../assets/images/galleryImages/rightArrow.svg');
+    background-size: 50px 50px;
+    background-repeat: none;
+    background-position: 90%;
+}
+
+@media (orientation: portrait) {
+    .slideShowContainer {
+        position: relative;
+        top: 8vh;
+    }
+}
