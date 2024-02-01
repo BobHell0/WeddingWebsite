@@ -24,7 +24,6 @@ app.use(express.urlencoded({ extended: false, limit: 10000, parameterLimit: 2 })
 // app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    console.log(__dirname);
     res.json({ message: "Hello" });
 });
 
