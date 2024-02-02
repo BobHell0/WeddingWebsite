@@ -8,13 +8,28 @@
     100% {opacity: 1;}
 }
 
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.wdContainerInvis {
+    position: relative;
+    width: 100vw;
+    height: 88vh;
+    top: 12vh;
+    /* animation-name: fadeOut;
+    animation-duration: 2s; */
+    opacity: 0;
+}
+
 .wdContainer {
     position: relative;
     width: 100vw;
     height: 88vh;
     top: 12vh;
     animation-name: fadeIn;
-    animation-duration: 4s;
+    animation-duration: 2s;
 }
 
 .wdContainer > img {
@@ -25,7 +40,6 @@
     font-family: OregonLDO;
     display: inline-block;
     text-align: center;
-    
 }
 
 .addressText {

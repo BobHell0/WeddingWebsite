@@ -1,4 +1,4 @@
-import { useState, forwardRef, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import "./CSS/Title.css";
 import bgImage from "../assets/images/coupleHoldingHands.jpeg";
 
@@ -20,7 +20,6 @@ export default function Title({ title }: TitleProps) {
       }
 
       const dateTextPosInfo = inputRef.current.getBoundingClientRect();
-      // const imgPosInfo = inputRef2.current.getBoundingClientRect();
 
       if (window.innerHeight < window.innerWidth && dateTextPosInfo.y < -10) {
         inputRef2.current.style.position = "absolute";
