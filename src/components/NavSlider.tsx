@@ -28,7 +28,11 @@ export default function NavSlider({
         </span>
       </div>
       {items.map((str, index) => (
-        <Link className="test" to={"/" + str.toLowerCase()} key={index}>
+        <Link
+          className="test"
+          to={str === "RSVP" ? "/login" : "/" + str.toLowerCase()}
+          key={index}
+        >
           <div className="navSeg" key={index} style={{ width: `${width}vw` }}>
             {str}
           </div>
