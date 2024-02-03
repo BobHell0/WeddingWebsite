@@ -18,13 +18,31 @@ export default function Login() {
             />
           </label>
           <div className="break"></div>
-          <button id="submitBttn">SUBMIT</button>
+          <button id="submitBttn">
+            <span>Submit</span>
+          </button>
           <div className="break"></div>
           <Link className="linkBack" to="/" id="goBack">
             Home
           </Link>
+          <a
+            href="#help"
+            style={{
+              position: "relative",
+              top: "5vh",
+              marginTop: "10vh",
+              marginLeft: "-50px",
+              fontSize: "12px",
+            }}
+          >
+            Need Help?
+          </a>
         </form>
       </div>
+
+      <section id="help" style={{ marginBottom: "50vh" }}>
+        Please contact 000 for emergencies.
+      </section>
     </>
   );
 }
