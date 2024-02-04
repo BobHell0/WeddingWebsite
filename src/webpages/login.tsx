@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export default function Login() {
   return (
     <>
-      {/* <div id="mainLoginTitle">Login</div> */}
       <div id="formContainer">
         <form autoComplete="off" id="loginForm">
           <label>
