@@ -3,7 +3,7 @@
     src: url(../../assets/fonts/countdown/Unitblock-mLAwm.ttf);
 }
 
-.countdownContainer {
+#countdownContainer {
     position: relative;
     left: 50%;
     margin-left: -16vw;;
@@ -51,8 +51,16 @@
 
 }
 
-@media (/*max-width: 800px*/ orientation: portrait) {
-    .countdownContainer {
+@media (orientation: landscape) {
+    #countdownContainer {
+        margin-top: 120vh;
+        margin-bottom: 35vh;
+    }
+
+}
+
+@media (orientation: portrait) {
+    #countdownContainer {
         position: relative;
         left: 50%;
         margin-left: -32vw;
@@ -86,3 +94,6 @@
         bottom: 30%;
     }
 }
+/* 
+margin-top: 120vh;
+margin-bottom: 35vh; */

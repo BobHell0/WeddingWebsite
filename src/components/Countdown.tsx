@@ -47,7 +47,7 @@ export default function Countdown({ epochDeadline }: CountdownProps) {
   const NUM_UNITS = 4;
 
   return (
-    <div className="countdownContainer">
+    <div id="countdownContainer">
       {strArr.map((strItem, index) => (
         <div className="countdownPanel" key={index}>
           {index !== NUM_UNITS - 1 && <span className="countdownColon">:</span>}
