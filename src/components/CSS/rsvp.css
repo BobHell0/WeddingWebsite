@@ -1,0 +1,15 @@
+#rsvpSubmission_form {
+    height: 33.33vh;
+    background-color: red;
+    position: relative;
+    top: 33.33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rsvpText {
+    margin-left: 10px;
+}
+

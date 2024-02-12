@@ -18,7 +18,7 @@ export default function Login() {
           </label>
           <div className="break"></div>
           <button id="submitBttn">
-            <span>Submit</span>
+            <span>Verify</span>
           </button>
           <div className="break"></div>
           <Link className="linkBack" to="/" id="goBack">

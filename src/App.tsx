@@ -9,6 +9,7 @@ import Home from "./webpages/home";
 import Gallery from "./webpages/gallery";
 import Login from "./webpages/login";
 import WeddingDetails from "./webpages/weddingDetails";
+import RSVP from "./webpages/rsvp";
 import { useEffect } from "react";
 export default function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="gallery" element={<Gallery />} />
             <Route path="login" element={<Login />} />
             <Route path="wedding details" element={<WeddingDetails />} />
+            <Route path="rsvp" element={<RSVP />} />
           </Route>
         </Routes>
       </BrowserRouter>
