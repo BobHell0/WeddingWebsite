@@ -25,6 +25,7 @@ export default function App() {
             <Route path="gallery" element={<Gallery />} />
             <Route path="login" element={<Login />} />
             <Route path="wedding details" element={<WeddingDetails />} />
+            {/* No button or anything to get to this path yet: */}
             <Route path="rsvp" element={<RSVP />} />
           </Route>
         </Routes>

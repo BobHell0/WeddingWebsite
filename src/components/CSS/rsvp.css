@@ -1,15 +1,59 @@
+@font-face {
+    font-family: printClearly;
+    src: url(../../assets/fonts/login/print-clearly-font/PrintClearly-GGP.ttf);
+}
 #rsvpSubmission_form {
     height: 33.33vh;
-    background-color: red;
+    /* background-color: red; */
     position: relative;
     top: 33.33vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: printClearly;
+    font-size: 28px;
+}
+
+input[type="radio"] {
+    accent-color: grey;
+
+}
+
+.rsvpLabel {
+    height: auto;
 }
 
 .rsvpText {
     margin-left: 10px;
 }
+
+#rsvpLabelNumPeople {
+    position: relative;
+    left: 50px;
+}
+
+#rsvpNumPeopleInput {
+    border: none;
+    border-bottom: 2px black solid;
+    height: 32px;
+    width: 56px;
+    text-align: center;
+}
+
+#rsvpNumPeopleInput:focus {
+    outline-style: none;
+    box-shadow: none;
+
+}
+
+
+#rsvp_SubmitButton {
+    margin-top: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 120px;
+    border: none;
+}
+
 
