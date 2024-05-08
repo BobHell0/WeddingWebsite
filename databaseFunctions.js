@@ -4,7 +4,7 @@ const uri = `mongodb+srv://bokchoyjunior:${mongoDB_password}@bobcluster.ky1jw4p.
 
 import IndivGuest from './src/model/IndivGuest.js';
 import IdToGuests from './src/model/IdToGuests.js';
-import { Db } from 'mongodb';
+
 
 export async function connectToMongo() {
   try {
@@ -18,4 +18,10 @@ export async function connectToMongo() {
 export async function getAllGuests(email) {
   const lookup = await IndivGuest.find({ email: email })
   console.log(lookup)
+  if (lookup == []) {
+    return -1
+  } else {
+    console.log(`Returning groupId = ${lookup[0].groupId}`)
+    return lookup[0].groupId;
+  }
 }
