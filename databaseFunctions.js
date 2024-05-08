@@ -4,18 +4,18 @@ const uri = `mongodb+srv://bokchoyjunior:${mongoDB_password}@bobcluster.ky1jw4p.
 
 import IndivGuest from './src/model/IndivGuest.js';
 import IdToGuests from './src/model/IdToGuests.js';
+import { Db } from 'mongodb';
 
 export async function connectToMongo() {
   try {
-    await mongoose.connect(uri);
+    await mongoose.connect(uri, { dbName: "GuestInfo" });
     console.log("Connected to mongo");
   } catch (error) {
     console.error("Error: ", error);
   }
 }
 
-export async function find(name, query, cb) {
-  mongoose.connection.db.collection("GuestToId", function (err, collection) {
-    collection.find(query).toArray(cb);
-  });
+export async function getAllGuests(email) {
+  const lookup = await IndivGuest.find({ email: email })
+  console.log(lookup)
 }
