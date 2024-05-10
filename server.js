@@ -32,12 +32,31 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/login.html'));
 });
 
-app.get('/checkLogin/:email', (req, res) => {
+app.get('/checkLogin/:email', async (req, res) => {
   const email = req.params.email.toLowerCase();
   console.log(email)
-  getAllGuests(email);
+  const groupId = await getAllGuests(email)
+  // .then(groupId => {
+  //   if (groupId == -1) {
+  //     console.log("ERROR: EMAIL NOT SET")
+  //   } else {
+  //     console.log(`GROUP ID = ${groupId}`)
+  //   }
+  //   res.json({ GroupID: groupId })
+  // });
 
-  setTimeout(() => res.json({ hello: 1 }), 5000)
+  if (groupId == -1) {
+    console.log("ERROR: EMAIL NOT SET")
+  } else {
+    console.log(`GROUP ID = ${groupId}`)
+  }
+
+  res.json({ GroupID: groupId })
+
+
+
+
+  // setTimeout(() => res.json({ GroupID: groupId }), 5000)
   // res.json({hello: 1})
 })
 
