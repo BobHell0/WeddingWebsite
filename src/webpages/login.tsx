@@ -6,7 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const INVALID_EMAIL = -1
 
-export default function Login() {
+interface LoginProp {
+  setLoggedIn: Function;
+  setUserEmail: Function
+}
+
+export default function Login({setLoggedIn, setUserEmail}: LoginProp) {
   const [providedEmail, setProvidedEmail] = useState("");
   const [attemptingLogin, setAttemptingLogin] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false)
@@ -41,13 +46,16 @@ export default function Login() {
           console.log("INVALID EMAIL PROVIDED")
           setErrorMessage(true);
         } else {
-          console.log("GOOD EMAIL FOUND")
+          console.log("GOOD EMAIL FOUND");
+          setLoggedIn(true)
+          setUserEmail(providedEmail);
           setErrorMessage(false);
           navigate("/rsvp");
         }
       });
     setAttemptingLogin(false);
   };
+
 
   return (
     <>

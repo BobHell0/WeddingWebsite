@@ -1,8 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import "../components/CSS/rsvp.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function rsvp() {
+
+interface RSVPProp {
+  loggedIn: boolean;
+  userEmail: string
+}
+
+export default function rsvp({loggedIn, userEmail}: RSVPProp) {
   const [isAttending, setIsAttending] = useState(-1);
+  const navigate = useNavigate();
 
   function handleClickAttending() {
     setIsAttending(1);
@@ -11,6 +19,13 @@ export default function rsvp() {
   function handleClickNotAttending() {
     setIsAttending(0);
   }
+
+  // Making sure someone has already given their email before they try to rsvp
+  useEffect(() => {
+    if (!loggedIn) {
+      navigate("/login");
+    }
+  })
 
   return (
     <>
