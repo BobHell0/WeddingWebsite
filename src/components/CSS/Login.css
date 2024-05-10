@@ -3,9 +3,16 @@
     src: url(../../assets/fonts/login/nugo-sans-font/NugoSansLight-9YzoK.ttf);
 }
 
-@keyframes whiteToBlack{
-    0% {color: white; background-color: #b5c9bb;}
-    100% {color: black; background-color: #d0e6d1;}
+@keyframes whiteToBlack {
+    0% {
+        color: white;
+        background-color: #b5c9bb;
+    }
+
+    100% {
+        color: black;
+        background-color: #d0e6d1;
+    }
 }
 
 
@@ -39,10 +46,18 @@ body {
 
 #loginForm {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: center;
+
     flex-wrap: wrap;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+/* .loading {
+    position: relative;
+    top: 18.5vh;
+} */
+
 
 .loginInput {
     text-align: center;
@@ -77,11 +92,12 @@ body {
 
 }
 
-#submitBttn:hover, #submitBttn:active {
+#submitBttn:hover,
+#submitBttn:active {
     animation-name: whiteToBlack;
     animation-duration: 0.4s;
     color: black;
-    background-color: #d0e6d1; 
+    background-color: #d0e6d1;
 }
 
 #submitBttn:active {
@@ -97,12 +113,24 @@ body {
     margin-right: -50px;
 }
 
+#loginError {
+    text-align: center;
+    color: red;
+    font-size: 12px;
+    margin-bottom: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
 #help {
     margin-top: 35vh;
     position: relative;
     top: 33vh;
     text-align: center;
 }
+
+
 
 @media (orientation: portrait) {
     #formContainer {
@@ -119,7 +147,7 @@ body {
         position: relative;
         top: 7vh;
     }
-    
+
     #submitBttn {
         margin-top: 10px;
         width: 70vw;
@@ -131,7 +159,7 @@ body {
         position: relative;
         top: 40vh;
     }
-    
+
 
 
 }
