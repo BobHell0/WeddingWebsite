@@ -13,11 +13,41 @@ import RSVP from "./webpages/rsvp";
 import { useEffect, useState } from "react";
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [userEmail, setUserEmail] = useState('')
+  const historicalLoggedIn = window.localStorage.getItem('loggedIn');
+  const boolHistoricalLoggedIn = historicalLoggedIn === 'true' ? true : false
+  const [loggedIn, setLoggedIn] = useState(boolHistoricalLoggedIn)
+
+  const historicalGroupId = window.localStorage.getItem('groupID');
+  const intHistoricalGroupID = historicalGroupId ? parseInt(historicalGroupId) : -1
+  const [groupID, setGroupId] = useState(intHistoricalGroupID)
+
+  // useEffect(() => {
+  //   try {
+  //     const historicalLoggedIn = window.localStorage.getItem('loggedIn');
+  //     console.log(`Historical Logged in = ${historicalLoggedIn}`)
+  //     console.log(`Type of historical logged in = ${typeof(historicalLoggedIn)}`)
+  //     setLoggedIn(historicalLoggedIn === 'true' ? true : false)
+  //     console.log(` loggedIn = ${loggedIn}`)
+  //     console.log(`typeof loggedIn = ${typeof(loggedIn)}`)
+
+  //     const historicalGroupId = window.localStorage.getItem('groupID');
+  //     console.log(`Historical GroupID = ${historicalGroupId}`);
+  //     console.log(`Type of historical groupID = ${typeof(historicalGroupId)}`)
+
+  //     if (historicalGroupId != null) {
+  //       setGroupId(parseInt(historicalGroupId))
+  //       console.log(`newGroupId = ${groupID}`)
+  //       console.log(`typeof newGroupId = ${typeof(groupID)}`)
+  //     }
+  //   } catch (error: any) {
+  //     console.error(`Error thrown at App.tsx : ${error.message}`)
+  //   }
+  // }, [])
+
   useEffect(() => {
     fetch("http://localhost:3000").then((res) => res.json());
   }, []);
+
   return (
     <>
       <BrowserRouter>
@@ -26,10 +56,10 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="gallery" element={<Gallery />} />
-            <Route path="login" element={<Login setLoggedIn={setLoggedIn} setUserEmail={setUserEmail}/>} />
+            <Route path="login" element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} groupId={groupID} setGroupId={setGroupId}/>} />
             <Route path="wedding details" element={<WeddingDetails />} />
             {/* No button or anything to get to this path yet: */}
-            <Route path="rsvp" element={<RSVP loggedIn={loggedIn} userEmail={userEmail}/>} />
+            <Route path="rsvp" element={<RSVP loggedIn={loggedIn} setLoggedIn={setLoggedIn} groupId={groupID} setGroupId={setGroupId}/>} />
           </Route>
         </Routes>
       </BrowserRouter>
