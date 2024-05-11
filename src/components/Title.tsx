@@ -40,7 +40,7 @@ export default function Title({ title }: TitleProps) {
   }, []);
 
   return (
-    <div className="bgContainer">
+    <div id="bgContainer">
       <img className="bgImage" src={bgImage} ref={inputRef2}></img>
       <div className="title" id="mainTitle">
         {title}

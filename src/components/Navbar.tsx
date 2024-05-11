@@ -17,7 +17,7 @@ function Navbar() {
         {headings.map((item, index) => (
           <Link
             className="test"
-            to={item === "RSVP" ? "/login" : "/" + item.toLowerCase()}
+            to={/*item === "RSVP" ? "/login" :*/ "/" + item.toLowerCase()}
             key={index}
           >
             <div className="navbarSeg" key={index}>
