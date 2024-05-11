@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
 
-const IndivGuestSchema = new Schema(
+const GuestToIdSchema = new Schema(
   {
     firstName: String,
     lastName: String,
@@ -11,5 +11,5 @@ const IndivGuestSchema = new Schema(
   { collection: "GuestToId" }
 );
 
-const IndivGuest = model('IndivGuest', IndivGuestSchema);
-export default IndivGuest;
+const GuestToId = model('GuestToId', GuestToIdSchema);
+export default GuestToId;
