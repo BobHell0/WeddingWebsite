@@ -1,5 +1,5 @@
 import "../components/CSS/Login.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom";
 const INVALID_EMAIL = -1
 
 interface LoginProp {
+  loggedIn: boolean;
   setLoggedIn: Function;
-  setUserEmail: Function
+  groupId: number;
+  setGroupId: Function;
 }
 
-export default function Login({setLoggedIn, setUserEmail}: LoginProp) {
+export default function Login({loggedIn, setLoggedIn, groupId, setGroupId}: LoginProp) {
   const [providedEmail, setProvidedEmail] = useState("");
   const [attemptingLogin, setAttemptingLogin] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false)
@@ -40,21 +42,27 @@ export default function Login({setLoggedIn, setUserEmail}: LoginProp) {
       .then((res) => res.json())
       .then((objectData) => {
         console.log(objectData)
-        const data = objectData.GroupID;
-        console.log(data)
-        if (data === INVALID_EMAIL) {
+        const groupId = objectData.GroupID;
+        console.log(groupId)
+        if (groupId === INVALID_EMAIL) {
           console.log("INVALID EMAIL PROVIDED")
           setErrorMessage(true);
         } else {
           console.log("GOOD EMAIL FOUND");
           setLoggedIn(true)
-          setUserEmail(providedEmail);
+          setGroupId(groupId);
+          window.localStorage.setItem('loggedIn', `${true}`)
+          window.localStorage.setItem('groupID', `${groupId}`)
           setErrorMessage(false);
           navigate("/rsvp");
         }
       });
     setAttemptingLogin(false);
   };
+
+  // useEffect(() => {
+    
+  // })
 
 
   return (

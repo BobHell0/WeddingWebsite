@@ -5,11 +5,15 @@ import { useEffect, useState } from "react";
 
 interface RSVPProp {
   loggedIn: boolean;
-  userEmail: string
+  setLoggedIn: Function;
+  groupId: number;
+  setGroupId: Function;
 }
 
-export default function rsvp({loggedIn, userEmail}: RSVPProp) {
+export default function rsvp({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPProp) {
   const [isAttending, setIsAttending] = useState(-1);
+  const family: string[] = []
+  const rsvpStatus: string[] = []
   const navigate = useNavigate();
 
   function handleClickAttending() {
@@ -21,11 +25,29 @@ export default function rsvp({loggedIn, userEmail}: RSVPProp) {
   }
 
   // Making sure someone has already given their email before they try to rsvp
+
   useEffect(() => {
     if (!loggedIn) {
       navigate("/login");
     }
   })
+ 
+  fetch(`http://localhost:3000/getFamily/${groupId}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      console.log(data.details.names[0])
+
+
+      for (const names of data.details.names) {
+        family.push(names);
+      }
+      for (const coming of data.details.coming) {
+        rsvpStatus.push(coming);
+      }
+    }
+  );
+
 
   return (
     <>
