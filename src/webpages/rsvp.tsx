@@ -12,9 +12,16 @@ interface RSVPProp {
 
 export default function rsvp({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPProp) {
   const [isAttending, setIsAttending] = useState(-1);
-  const family: string[] = []
-  const rsvpStatus: string[] = []
+  // const family: string[] = []
+  // const rsvpStatus: string[] = []
+
+  const [family, setFamily] = useState([])
+  const [rsvpStatus, setRsvpStatus] = useState([])
+
+
   const navigate = useNavigate();
+
+
 
   function handleClickAttending() {
     setIsAttending(1);
@@ -30,61 +37,43 @@ export default function rsvp({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
     if (!loggedIn) {
       navigate("/login");
     }
-  })
- 
-  fetch(`http://localhost:3000/getFamily/${groupId}`)
+    fetch(`http://localhost:3000/getFamily/${groupId}`)
     .then(res => res.json())
     .then(data => {
       console.log(data)
       console.log(data.details.names[0])
 
+      console.log(data.details.names)
+      // for (const names of data.details.names) {
+      //   console.log(names)
+      //   // family.push(names);
+      //   console.log(family)
+      //   setFamily(family + names)
+      // }
+      setFamily(data.details.names)
+      setRsvpStatus(data.details.coming)
+    })
+  }, [])
+ 
 
-      for (const names of data.details.names) {
-        family.push(names);
-      }
-      for (const coming of data.details.coming) {
-        rsvpStatus.push(coming);
-      }
-    }
-  );
-
+  console.log(`Family = ${family}`)
 
   return (
     <>
       <form id="rsvpSubmission_form">
-        <div>
-          <label className="rsvpLabel">
-            <input
-              type="radio"
-              id="rsvp_attending"
-              name="rsvpResponse"
-              onClick={handleClickAttending}
-            />
-            <span className="rsvpText">Attending</span>
-          </label>
+        {family.map(n => (
+          <>
+            <span>{n}</span>
+            <div>
+              <input type="radio" name={`${n}_rsvpStatus`} value="coming"  id={`${n}_coming`}/>
+              <label htmlFor={`${n}_coming`}>Coming</label>
+                <input type="radio" name={`${n}_rsvpStatus`} value="notComing" id={`${n}_notComing`}/>
+                <label htmlFor={`${n}_notComing`}>Not coming</label>
+            </div>
+         
 
-          {isAttending == 1 && (
-            <>
-              <br></br>
-              <label className="rsvpLabel" id="rsvpLabelNumPeople">
-                <span>Number Attending: </span>
-                <input id="rsvpNumPeopleInput" type="text"></input>
-              </label>
-              <br></br>
-            </>
-          )}
-          <br></br>
-          <label className="rsvpLabel">
-            <input
-              type="radio"
-              id="rsvp_notAttending"
-              name="rsvpResponse"
-              onClick={handleClickNotAttending}
-            />
-            <span className="rsvpText">Not Attending</span>
-          </label>
-        </div>
-
+          </>
+        ))}
         <button id="rsvp_SubmitButton">Submit</button>
       </form>
     </>
