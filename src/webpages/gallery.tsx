@@ -19,6 +19,7 @@ export default function Gallery() {
         <Slide
           prevArrow={<button className="arrowStyling" id="leftArrow"></button>}
           nextArrow={<button className="arrowStyling" id="rightArrow"></button>}
+          slidesToScroll={2} slidesToShow={2}
         >
           {imgArr.map((item, index) => (
             <div className="each-slide-effect" key={index}>
