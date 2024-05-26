@@ -76,15 +76,9 @@ export async function getTable() {
       `name, rsvp\n` // column names for csv
     );
 
-
-
-
     fs.writeFileSync(`${guestList_fileName}`, `${dataCSV}\n`); // remove /n if you dont want new line at the end 
 
-
-
     // finally, write csv content to a file using Node's fs module
-
   } catch (error) {
     console.error(`Error thrown at databaseFunctions.js - getTable`)
     console.log(error.message)
