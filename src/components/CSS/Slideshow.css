@@ -1,9 +1,14 @@
 @keyframes appear {
-    from {visibility: hidden;}
-    to {visibility: visible;}
+    from {
+        visibility: hidden;
+    }
+
+    to {
+        visibility: visible;
+    }
 }
 
-.each-slide-effect > div {
+.each-slide-effect>div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +20,7 @@
     /* border: red 0.2px solid; */
     position: relative;
     top: 16vh;
-    
+
 }
 
 .slideShowImgContainer {
@@ -25,24 +30,24 @@
 }
 
 .slideShowImg {
-    height: 80%;;
+    height: 80%;
     max-width: 80%;
 }
 
 .arrowStyling {
-    position: absolute;
+    position: relative;
     bottom: 0;
     border: 1px black solid;
     border-radius: 50%;
     margin: 3%;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     background-color: transparent;
 }
 
 #leftArrow {
     background-image: url('../../assets/images/galleryImages/leftArrow.svg');
-    background-size: 50px 50px;
+    background-size: 24px 24px;
     background-repeat: none;
     background-position: 10%;
 }
@@ -50,9 +55,17 @@
 
 #rightArrow {
     background-image: url('../../assets/images/galleryImages/rightArrow.svg');
-    background-size: 50px 50px;
+    background-size: 24px 24px;
     background-repeat: none;
     background-position: 90%;
+}
+
+.arrowStyling:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.arrowStyling:active {
+    background-color: white;
 }
 
 @media (orientation: portrait) {
