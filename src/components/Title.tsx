@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import "./CSS/Title.css";
 import bgImage from "../assets/images/coupleHoldingHands.jpeg";
-
+import weddingDate from "../date"
 interface TitleProps {
   title: string;
 }
@@ -9,6 +9,10 @@ interface TitleProps {
 export default function Title({ title }: TitleProps) {
   const inputRef = useRef<HTMLDivElement>(null);
   const inputRef2 = useRef<HTMLImageElement>(null);
+  const weddingDateDetails = weddingDate.split(' ')
+
+  const timeDetails = weddingDateDetails[3].split(':')
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +53,7 @@ export default function Title({ title }: TitleProps) {
         are getting married
       </div>
       <div className="title" id="date" ref={inputRef}>
-        Jan 1 2025 @ 10 am
+        {weddingDateDetails[0]} {weddingDateDetails[1]} {weddingDateDetails[2]}{/* @ {timeDetails[0]}:{timeDetails[1]} am*/}
       </div>
     </div>
   );

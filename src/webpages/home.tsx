@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Title from "../components/Title";
 import ScrollButton from "../components/ScrollButton";
 import Countdown from "../components/Countdown.js";
+import weddingDate from "../date"
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
           <ScrollButton rotation={180} y={90} />
         )}
       </a>
-      <Countdown epochDeadline={new Date("Jan 1 , 2025 00:00:00").getTime()} />
+      <Countdown epochDeadline={new Date(weddingDate).getTime()} />
     </>
   );
 }

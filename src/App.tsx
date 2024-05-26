@@ -21,28 +21,28 @@ export default function App() {
   const intHistoricalGroupID = historicalGroupId ? parseInt(historicalGroupId) : -1
   const [groupID, setGroupId] = useState(intHistoricalGroupID)
 
-  // useEffect(() => {
-  //   try {
-  //     const historicalLoggedIn = window.localStorage.getItem('loggedIn');
-  //     console.log(`Historical Logged in = ${historicalLoggedIn}`)
-  //     console.log(`Type of historical logged in = ${typeof(historicalLoggedIn)}`)
-  //     setLoggedIn(historicalLoggedIn === 'true' ? true : false)
-  //     console.log(` loggedIn = ${loggedIn}`)
-  //     console.log(`typeof loggedIn = ${typeof(loggedIn)}`)
+  useEffect(() => {
+    try {
+      const historicalLoggedIn = window.localStorage.getItem('loggedIn');
+      console.log(`Historical Logged in = ${historicalLoggedIn}`)
+      console.log(`Type of historical logged in = ${typeof(historicalLoggedIn)}`)
+      setLoggedIn(historicalLoggedIn === 'true' ? true : false)
+      console.log(` loggedIn = ${loggedIn}`)
+      console.log(`typeof loggedIn = ${typeof(loggedIn)}`)
 
-  //     const historicalGroupId = window.localStorage.getItem('groupID');
-  //     console.log(`Historical GroupID = ${historicalGroupId}`);
-  //     console.log(`Type of historical groupID = ${typeof(historicalGroupId)}`)
+      const historicalGroupId = window.localStorage.getItem('groupID');
+      console.log(`Historical GroupID = ${historicalGroupId}`);
+      console.log(`Type of historical groupID = ${typeof(historicalGroupId)}`)
 
-  //     if (historicalGroupId != null) {
-  //       setGroupId(parseInt(historicalGroupId))
-  //       console.log(`newGroupId = ${groupID}`)
-  //       console.log(`typeof newGroupId = ${typeof(groupID)}`)
-  //     }
-  //   } catch (error: any) {
-  //     console.error(`Error thrown at App.tsx : ${error.message}`)
-  //   }
-  // }, [])
+      if (historicalGroupId != null) {
+        setGroupId(parseInt(historicalGroupId))
+        console.log(`newGroupId = ${groupID}`)
+        console.log(`typeof newGroupId = ${typeof(groupID)}`)
+      }
+    } catch (error: any) {
+      console.error(`Error thrown at App.tsx : ${error.message}`)
+    }
+  }, [])
 
   useEffect(() => {
     fetch("http://localhost:3000").then((res) => res.json());
