@@ -23,7 +23,7 @@
 }
 
 .rsvp_guestName {
-    font-size: 28px;
+    font-size: 36px;
 }
 
 input[type="radio"] {
@@ -62,8 +62,14 @@ input[type="radio"] {
     background-color: rgb(216, 216, 216);
 }
 
+#rsvp-changeEmail {
+    font-size: 24px;
+}
+
+
 #rsvp-goHome {
     margin-top: 16px;
+    font-size: 24px;
 }
 
 .rsvp_ErrorMessage {

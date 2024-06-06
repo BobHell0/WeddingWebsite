@@ -142,7 +142,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
         <button id="rsvp_SubmitButton">Submit</button>
         {rsvpError && <span className="rsvp_ErrorMessage">Error: ensure a selection has been made for all guests</span>}
         {rsvpSuccess && <span className="rsvp_SuccessMessage">Success: your response has been saved</span>}
-        <a href="/login" onClick={handleChangeEmail}>Change Email</a>
+        <a id="rsvp-changeEmail" href="/login" onClick={handleChangeEmail}>Change Email</a>
         <a id="rsvp-goHome" href="/" onClick={goHome}>Go Home</a>
       </form>
     </>
