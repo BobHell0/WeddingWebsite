@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../components/CSS/rsvp.css";
 import { useEffect, useState } from "react";
+import { server_endpoint } from "../serverEndpoint";
 
 
 interface RSVPProp {
@@ -66,7 +67,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
 
   function updateMongo(rsvpStatusCopy: string[]) {
     if (!rsvpError) {
-      fetch(`http://localhost:3000/setRsvpStatus/${groupId}`, {
+      fetch(`${server_endpoint}/setRsvpStatus/${groupId}`, {
         method: 'PUT',
         body: JSON.stringify({
           rsvpStatus: rsvpStatusCopy
@@ -112,7 +113,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
     if (!loggedIn) {
       navigate("/login");
     }
-    fetch(`http://localhost:3000/getFamily/${groupId}`)
+    fetch(`${server_endpoint}/getFamily/${groupId}`)
     .then(res => res.json())
     .then(data => {
       setFamily(data.details.names)
