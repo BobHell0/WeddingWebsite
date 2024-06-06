@@ -5,7 +5,9 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 
-import { connectToMongo, getAllGuests, getFamily } from './databaseFunctions.js';
+import { connectToMongo, getAllGuests, getFamily, getTable, setNewRsvpStatus } from './databaseFunctions.js';
+import { guestList_password } from './guestListPassword.js';
+import { guestList_fileName } from './guestListFileName.js';
 
 const app = express();
 // const path = require('path');
@@ -21,7 +23,7 @@ app.use(express.urlencoded({ extended: false, limit: 10000, parameterLimit: 2 })
 
 // app.use(express.static(path.join(__dirname, 'public')));
 
-connectToMongo();
+await connectToMongo();
 
 /////////// Routes ////////////
 app.get('/', (req, res) => {
@@ -66,6 +68,37 @@ app.get('/getFamily/:groupId', async (req, res) => {
   }
 })
 
+app.put('/setRsvpStatus/:groupId', async (req, res) => {
+  try {
+    const groupId = req.params.groupId;
+    console.log(req.body)
+    const rsvpStatus = req.body.rsvpStatus
+    await setNewRsvpStatus(groupId, rsvpStatus)
+    res.json({
+      message: 'Successful'
+    })
+
+  } catch (error) {
+    console.error(error.message)
+    res.json({
+      message: 'Fail'
+    });
+  }
+})
+
+app.get('/guestList/:password', async (req, res) => {
+  try {
+    const password = req.params.password;
+    if (password != guestList_password) {
+      res.json("That is not the way")
+    }
+    await getTable()
+    res.download(guestList_fileName);
+  } catch (error) {
+    console.error("Error at get(/guestList/:password");
+    console.error(error.message);
+  }
+})
 
 app.listen(PORT);
 console.log(`Listening on port ${PORT}`);

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../components/CSS/weddingDetails1.css";
 import "../components/CSS/weddingDetails2.css";
-
+import weddingDate from "../date";
 import weddingVenue from "../assets/images/weddingDetails/weddingLocale.jpg";
 import weddingCake from "../assets/images/weddingDetails/weddingCake.jpg";
 
@@ -20,6 +20,9 @@ export default function weddingDetails() {
   const DnTRef = useRef<HTMLElement>(null);
 
   const isLandscape = winWidth > winHeight ? true : false;
+  
+  const weddingDateDetails = weddingDate.split(' ')
+  const timeDetails = weddingDateDetails[3].split(':')
 
   // fade-in animation for landscsape screens
   useEffect(() => {
@@ -38,7 +41,6 @@ export default function weddingDetails() {
       }
 
       const addressHeaderInfo = addRef.current.getBoundingClientRect();
-      // const dateAndTimeInfo = DnTRef.current.getBoundingClientRect();
 
       // Landscape
       if (window.innerHeight < window.innerWidth) {
@@ -120,9 +122,9 @@ export default function weddingDetails() {
               fontSize: `${winWidth / 52}px`,
             }}
           >
-            10:00 am
+            {/* {timeDetails[0]}:{timeDetails[1]} am */}
             <br></br>
-            1st of January, 2025
+            {weddingDateDetails[0]} {weddingDateDetails[1]} {weddingDateDetails[2]}
           </span>
         </div>
       </div>
