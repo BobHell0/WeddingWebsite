@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../components/CSS/weddingDetails1.css";
 import "../components/CSS/weddingDetails2.css";
+
 import weddingDate from "../date";
 import weddingVenue from "../assets/images/weddingDetails/weddingLocale.jpg";
 import weddingCake from "../assets/images/weddingDetails/weddingCake.jpg";

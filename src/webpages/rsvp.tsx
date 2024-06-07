@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../components/CSS/rsvp.css";
 import { useEffect, useState } from "react";
+import { server_endpoint } from "../serverEndpoint";
 
 
 interface RSVPProp {
@@ -8,6 +9,10 @@ interface RSVPProp {
   setLoggedIn: Function;
   groupId: number;
   setGroupId: Function;
+}
+
+interface FormResponseObject {
+
 }
 
 export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPProp) {
@@ -21,10 +26,13 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
 
   function getRsvpDetails(event: React.FormEvent) {
     var rsvpStausCopy: string[] = rsvpStatus;
+    console.log(event)
     for (const i in family) {
       var currIndex = parseInt(i) * 2;
-      const isComing: boolean = event.target[currIndex].checked;
+      // @ts-ignore
+      const isComing: boolean = (event.target[currIndex] as any).checked;
       currIndex++;
+      // @ts-ignore
       const isNotComing: boolean = event.target[currIndex].checked;
       
       console.log(isComing, isNotComing)
@@ -66,7 +74,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
 
   function updateMongo(rsvpStatusCopy: string[]) {
     if (!rsvpError) {
-      fetch(`http://localhost:3000/setRsvpStatus/${groupId}`, {
+      fetch(`${server_endpoint}/setRsvpStatus/${groupId}`, {
         method: 'PUT',
         body: JSON.stringify({
           rsvpStatus: rsvpStatusCopy
@@ -112,7 +120,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
     if (!loggedIn) {
       navigate("/login");
     }
-    fetch(`http://localhost:3000/getFamily/${groupId}`)
+    fetch(`${server_endpoint}/getFamily/${groupId}`)
     .then(res => res.json())
     .then(data => {
       setFamily(data.details.names)

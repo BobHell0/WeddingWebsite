@@ -2,6 +2,7 @@ import "../components/CSS/Login.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { server_endpoint } from "../serverEndpoint";
 
 
 const INVALID_EMAIL = -1
@@ -33,7 +34,7 @@ export default function Login({loggedIn, setLoggedIn, groupId, setGroupId}: Logi
   const handleLoginSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setAttemptingLogin(true);
-    await fetch(`http://localhost:3000/checkLogin/${providedEmail}`, {
+    await fetch(`${server_endpoint}/checkLogin/${providedEmail}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

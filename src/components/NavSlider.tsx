@@ -12,7 +12,7 @@ export default function NavSlider({
   changeShowMenu,
   width,
 }: NavSliderProp) {
-  if (!showMenu) return;
+  if (!showMenu) return <></>;
 
   const items = ["Gallery", "Wedding Details", "RSVP"];
   return (

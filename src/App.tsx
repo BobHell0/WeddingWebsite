@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { server_endpoint } from "./serverEndpoint";
 import ScrollToTop from "./components/ScrollToTop";
 
 import Layout from "./webpages/Layout";
@@ -45,7 +45,7 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    fetch("http://localhost:3000").then((res) => res.json());
+    fetch(`${server_endpoint}`).then((res) => res.json());
   }, []);
 
   return (
