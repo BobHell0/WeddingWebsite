@@ -11,6 +11,10 @@ interface RSVPProp {
   setGroupId: Function;
 }
 
+interface FormResponseObject {
+
+}
+
 export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPProp) {
 
   const [family, setFamily] = useState([])
@@ -22,10 +26,13 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
 
   function getRsvpDetails(event: React.FormEvent) {
     var rsvpStausCopy: string[] = rsvpStatus;
+    console.log(event)
     for (const i in family) {
       var currIndex = parseInt(i) * 2;
-      const isComing: boolean = event.target[currIndex].checked;
+      // @ts-ignore
+      const isComing: boolean = (event.target[currIndex] as any).checked;
       currIndex++;
+      // @ts-ignore
       const isNotComing: boolean = event.target[currIndex].checked;
       
       console.log(isComing, isNotComing)
