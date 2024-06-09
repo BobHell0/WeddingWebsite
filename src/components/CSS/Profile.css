@@ -1,0 +1,12 @@
+.Profile_ProfilePic {
+    width: 120px;
+    height: 120px;
+}
+
+
+@media (orientation: portrait) {
+    .Profile_ProfilePic {
+        width: 80px;
+        height: 80px;
+    }
+}

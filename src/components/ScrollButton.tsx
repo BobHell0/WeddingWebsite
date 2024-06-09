@@ -3,12 +3,20 @@ import downArrow from "../assets/images/downArrow.svg";
 interface ScrollButtonProps {
   y: number;
   rotation: number;
+  scrollVal: number;
 }
-export default function ScrollButton({ y, rotation }: ScrollButtonProps) {
-  const winWidth = window.innerWidth;
+export default function ScrollButton({ y, rotation, scrollVal }: ScrollButtonProps) {
+  const windHeight = window.innerHeight;
 
+  const handleOnClick = () => {
+    window.scrollTo({
+      top: scrollVal * windHeight,
+      left: 0,
+      behavior: "smooth"
+    })
+  }
   return (
-    <img
+    <img onClick={handleOnClick}
       style={{
         position: "relative",
         transform: `rotate(${rotation}deg)`,
