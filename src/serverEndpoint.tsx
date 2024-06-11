@@ -1,1 +1,1 @@
-export const server_endpoint = "api.dhivsandashkalyanam.com"
+export const server_endpoint = "https://api.dhivsandashkalyanam.com"
