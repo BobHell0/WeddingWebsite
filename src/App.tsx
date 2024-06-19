@@ -45,7 +45,14 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    fetch(`${server_endpoint}`).then((res) => res.json());
+    fetch(
+      `${server_endpoint}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: 'cors'
+      }
+    ).then((res) => res.json());
   }, []);
 
   return (
