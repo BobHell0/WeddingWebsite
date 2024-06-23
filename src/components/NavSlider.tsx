@@ -29,7 +29,7 @@ export default function NavSlider({
       </div>
       {items.map((str, index) => (
         <Link
-          className="test"
+          className="Navbar-Link"
           to={/*str === "RSVP" ? "/login" : */"/" + str.toLowerCase()}
           key={index}
         >

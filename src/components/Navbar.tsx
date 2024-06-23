@@ -11,12 +11,12 @@ function Navbar() {
   if (window.outerHeight < window.outerWidth) {
     return (
       <nav>
-        <Link className="test" to="/">
+        <Link className="Navbar-Link" to="/">
           <div className="homeSeg">Dhivya and Ashantth</div>
         </Link>
         {headings.map((item, index) => (
           <Link
-            className="test"
+            className="Navbar-Link"
             to={/*item === "RSVP" ? "/login" :*/ "/" + item.toLowerCase()}
             key={index}
           >
@@ -46,7 +46,7 @@ function Navbar() {
   return (
     <>
       <nav>
-        <Link className="test" to="/">
+        <Link className="Navbar-Link" to="/">
           <div className="homeSeg">Dhivya and Ashantth</div>
         </Link>
         <div className="menuButton" onClick={handleClickMenu}>
