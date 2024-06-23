@@ -75,6 +75,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
   function updateMongo(rsvpStatusCopy: string[]) {
     if (!rsvpError) {
       fetch(`${server_endpoint}/setRsvpStatus/${groupId}`, {
+        mode: 'cors',
         method: 'PUT',
         body: JSON.stringify({
           rsvpStatus: rsvpStatusCopy
@@ -120,7 +121,9 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
     if (!loggedIn) {
       navigate("/login");
     }
-    fetch(`${server_endpoint}/getFamily/${groupId}`)
+    fetch(`${server_endpoint}/getFamily/${groupId}`, {
+      mode: 'cors'
+    })
     .then(res => res.json())
     .then(data => {
       setFamily(data.details.names)

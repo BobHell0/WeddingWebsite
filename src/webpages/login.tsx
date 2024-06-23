@@ -35,10 +35,11 @@ export default function Login({loggedIn, setLoggedIn, groupId, setGroupId}: Logi
     e.preventDefault();
     setAttemptingLogin(true);
     await fetch(`${server_endpoint}/checkLogin/${providedEmail}`, {
+      mode: 'cors',
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-      },
+      }
     })
       .then((res) => res.json())
       .then((objectData) => {
@@ -75,7 +76,6 @@ export default function Login({loggedIn, setLoggedIn, groupId, setGroupId}: Logi
           onSubmit={handleLoginSubmission}
         >
           <div className="break"></div>
-
           <label>
             <input
               onChange={handleChangingEmail}
@@ -83,7 +83,7 @@ export default function Login({loggedIn, setLoggedIn, groupId, setGroupId}: Logi
               className="loginInput"
               name="email"
               autoComplete="off"
-              placeholder={"Enter your email"}
+              placeholder={"Full name (as per your invitation)"}
             />
           </label>
           <div className="break"></div>

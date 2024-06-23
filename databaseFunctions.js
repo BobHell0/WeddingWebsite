@@ -17,13 +17,11 @@ export async function connectToMongo() {
   }
 }
 
-export async function getAllGuests(email) {
-  const lookup = await GuestToId.find({ email: email })
-  console.log(lookup)
+export async function getAllGuests(name) {
+  const lookup = await GuestToId.find({ name: name.tolowerC })
   if (lookup.length === 0) {
     return -1
   } else {
-    console.log(`Returning groupId = ${lookup[0].groupId}`)
     return lookup[0].groupId;
   }
 }
