@@ -18,7 +18,7 @@ export async function connectToMongo() {
 }
 
 export async function getAllGuests(name) {
-  const lookup = await GuestToId.find({ name: name.tolowerC })
+  const lookup = await GuestToId.find({ name: name })
   if (lookup.length === 0) {
     return -1
   } else {
