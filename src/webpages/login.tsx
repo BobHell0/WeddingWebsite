@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { server_endpoint } from "../serverEndpoint";
 
 
-const INVALID_EMAIL = -1
+const INVALID_GUEST_NAME = -1
 
 interface LoginProp {
   loggedIn: boolean;
@@ -15,41 +15,41 @@ interface LoginProp {
 }
 
 export default function Login({loggedIn, setLoggedIn, groupId, setGroupId}: LoginProp) {
-  const [providedEmail, setProvidedEmail] = useState("");
+  const [providedName, setProvidedName] = useState("");
   const [attemptingLogin, setAttemptingLogin] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false)
   
   const navigate = useNavigate();
 
   
-  const handleChangingEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangingName = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event === null || event.target === null) {
       return;
     }
-    setProvidedEmail(event.target.value);
-    console.log(providedEmail);
+    setProvidedName(event.target.value);
     return;
   };
 
   const handleLoginSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setAttemptingLogin(true);
-    await fetch(`${server_endpoint}/checkLogin/${providedEmail}`, {
+    await fetch(`${server_endpoint}/checkLogin/${providedName}`, {
+      mode: 'cors',
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-      },
+      }
     })
       .then((res) => res.json())
       .then((objectData) => {
         console.log(objectData)
         const groupId = objectData.GroupID;
         console.log(groupId)
-        if (groupId === INVALID_EMAIL) {
-          console.log("INVALID EMAIL PROVIDED")
+        if (groupId === INVALID_GUEST_NAME) {
+          console.log("INVALID Name PROVIDED")
           setErrorMessage(true);
         } else {
-          console.log("GOOD EMAIL FOUND");
+          console.log("GOOD Name FOUND");
           setLoggedIn(true)
           setGroupId(groupId);
           window.localStorage.setItem('loggedIn', `${true}`)
@@ -75,15 +75,14 @@ export default function Login({loggedIn, setLoggedIn, groupId, setGroupId}: Logi
           onSubmit={handleLoginSubmission}
         >
           <div className="break"></div>
-
           <label>
             <input
-              onChange={handleChangingEmail}
+              onChange={handleChangingName}
               type="text"
               className="loginInput"
-              name="email"
+              name="Name"
               autoComplete="off"
-              placeholder={"Enter your email"}
+              placeholder={"Full name (as per your invitation)"}
             />
           </label>
           <div className="break"></div>
@@ -112,7 +111,7 @@ export default function Login({loggedIn, setLoggedIn, groupId, setGroupId}: Logi
             Need Help?
           </a>
         </form>
-        {errorMessage && <section id="loginError" >Email not found :(</section>}
+        {errorMessage && <section id="loginError" >Guest name not found</section>}
       </div>
       <section id="help" style={{ marginBottom: "50vh" }}>
         Please contact 000 for emergencies.

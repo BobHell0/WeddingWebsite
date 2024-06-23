@@ -3,9 +3,7 @@ const { Schema, model } = mongoose;
 
 const GuestToIdSchema = new Schema(
   {
-    firstName: String,
-    lastName: String,
-    email: String,
+    name: String,
     groupId: Number,
   },
   { collection: "GuestToId" }

@@ -45,12 +45,13 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    console.log(`${server_endpoint} from APP.tsx`)
     fetch(
       `${server_endpoint}`, {
+        mode: 'cors',
         headers: {
           "Content-Type": "application/json",
-        },
-        mode: 'cors'
+        }
       }
     ).then((res) => res.json());
   }, []);

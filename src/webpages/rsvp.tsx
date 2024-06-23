@@ -35,7 +35,6 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
       // @ts-ignore
       const isNotComing: boolean = event.target[currIndex].checked;
       
-      console.log(isComing, isNotComing)
       if (isComing) {
         setRsvpError(false)
         const nextComingArr = rsvpStausCopy.map((s, index) => {
@@ -47,7 +46,6 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
           
         })
         rsvpStausCopy = nextComingArr
-        console.log(`rsvp copy = ${rsvpStausCopy}`);
 
       } else if (isNotComing) {
         setRsvpError(false)
@@ -59,9 +57,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
           }
         })
         rsvpStausCopy = nextComingArr
-        console.log(`rsvp copy = ${rsvpStausCopy}`);
       } else {
-        console.log("Got a false false, rsvp error is true")
         setRsvpError(true);
         setRsvpSuccess(false);
         return
@@ -75,6 +71,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
   function updateMongo(rsvpStatusCopy: string[]) {
     if (!rsvpError) {
       fetch(`${server_endpoint}/setRsvpStatus/${groupId}`, {
+        mode: 'cors',
         method: 'PUT',
         body: JSON.stringify({
           rsvpStatus: rsvpStatusCopy
@@ -103,24 +100,26 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
     }
   }
 
-  function handleChangeEmail() {
+  function handleChangeName() {
     window.localStorage.setItem('loggedIn', 'false');
     window.localStorage.setItem('groupID', '-1');
     return;
   }
 
   function goHome() {
-    handleChangeEmail()
+    handleChangeName()
     return;
   }
 
-  // Making sure someone has already given their email before they try to rsvp
+  // Making sure someone has already given their name before they try to rsvp
 
   useEffect(() => {
     if (!loggedIn) {
       navigate("/login");
     }
-    fetch(`${server_endpoint}/getFamily/${groupId}`)
+    fetch(`${server_endpoint}/getFamily/${groupId}`, {
+      mode: 'cors'
+    })
     .then(res => res.json())
     .then(data => {
       setFamily(data.details.names)
@@ -150,7 +149,7 @@ export default function RSVP({loggedIn, setLoggedIn, groupId, setGroupId}: RSVPP
         <button id="rsvp_SubmitButton">Submit</button>
         {rsvpError && <span className="rsvp_ErrorMessage">Error: ensure a selection has been made for all guests</span>}
         {rsvpSuccess && <span className="rsvp_SuccessMessage">Success: your response has been saved</span>}
-        <a id="rsvp-changeEmail" href="/login" onClick={handleChangeEmail}>Change Email</a>
+        <a id="rsvp-changeName" href="/login" onClick={handleChangeName}>Change Name</a>
         <a id="rsvp-goHome" href="/" onClick={goHome}>Go Home</a>
       </form>
     </>

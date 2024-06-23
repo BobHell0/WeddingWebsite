@@ -15,7 +15,7 @@ const app = express();
 const PORT = 3000;
 
 // Middleware
-app.use(cors({ origin: "https://dhivsandashkalyanam.com" }));
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 
@@ -38,15 +38,9 @@ app.get('/checkLogin', (req, res) => {
   res.json({ GroupID: -1 })
 })
 
-app.get('/checkLogin/:email', async (req, res) => {
-  const email = req.params.email.toLowerCase();
-  console.log(email)
-  const groupId = await getAllGuests(email)
-  if (groupId == -1) {
-    console.log("ERROR: EMAIL NOT SET")
-  } else {
-    console.log(`GROUP ID = ${groupId}`)
-  }
+app.get('/checkLogin/:name', async (req, res) => {
+  const name = req.params.name.toLowerCase();
+  const groupId = await getAllGuests(name)
 
   res.json({ GroupID: groupId })
 
