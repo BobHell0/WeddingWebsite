@@ -1,6 +1,15 @@
 @keyframes slide {
-    from  {right: 1; width: 1vh; font-size: 0;}
-    to {right: 0; width: 80vw; font-size: 2rem;}
+    from {
+        right: 1;
+        width: 1vh;
+        font-size: 0;
+    }
+
+    to {
+        right: 0;
+        width: 80vw;
+        font-size: 2rem;
+    }
 }
 
 .container {
@@ -36,10 +45,11 @@
 
 
 .navSeg {
-    
+
     animation-name: slide;
     animation-duration: 1s;
-
+    margin-top: 3px;
+    margin-bottom: 3px;
     height: 6vh;
     line-height: 6vh;
     text-align: right;
@@ -50,6 +60,7 @@
 .navSeg:hover {
     color: white;
 }
+
 .navSeg:active {
     background-color: red;
 }

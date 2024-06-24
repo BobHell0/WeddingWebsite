@@ -42,14 +42,16 @@ nav {
 }
 
 .navbarSeg {
-    width: 16vw;/* 100 / (# of segments) */
+    width: 16vw;
+    /* 100 / (# of segments) */
     height: 12vh;
-    
+
     background: linear-gradient(to bottom, transparent 50%, #dff2e3 50%) top;
     background-size: 100% 200%;
     text-align: center;
     line-height: 12vh;
-    font-size: calc(1vw + 1vh);;
+    font-size: calc(1vw + 1vh);
+    ;
     float: right;
     cursor: pointer;
     text-decoration: none;
@@ -65,7 +67,7 @@ nav {
     font-size: calc(1.2vw + 1vh);
 }
 
-.test {
+.Navbar-Link {
     text-decoration: none;
     color: white;
 }
@@ -87,6 +89,7 @@ nav {
         display: flex;
         align-items: center;
     }
+
     .menuButton {
         position: absolute;
         width: 3vh;
@@ -97,7 +100,9 @@ nav {
     }
 
 
-    .bar1, .bar2, .bar3 {
+    .bar1,
+    .bar2,
+    .bar3 {
         max-width: 40px;
         width: 100%;
         height: 0.3vh;
@@ -106,4 +111,3 @@ nav {
         transition: 0.4s;
     }
 }
-
