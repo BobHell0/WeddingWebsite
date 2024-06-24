@@ -3,6 +3,8 @@ import NavSlider from "./NavSlider";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+
+// For portrait mode, the slider width has units vw
 const SLIDER_WIDTH = 80;
 
 // ["Gallery", "Wedding Details", "RSVP"]
