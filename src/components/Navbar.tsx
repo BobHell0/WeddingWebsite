@@ -10,7 +10,7 @@ const SLIDER_WIDTH = 80;
 // ["Gallery", "Wedding Details", "RSVP"]
 function Navbar() {
   let headings = ["Gallery", "Wedding Details", "RSVP"].reverse();
-  if (window.outerHeight < window.outerWidth) {
+  if (window.innerHeight < window.innerWidth) {
     return (
       <nav>
         <Link className="Navbar-Link" to="/">
