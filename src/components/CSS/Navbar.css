@@ -23,13 +23,14 @@ nav {
     background: linear-gradient(to bottom, transparent 50%, #dff2e3 50%) top;
     background-size: 100% 200%;
     display: inline-block;
-    width: 18vw;
+
     font-size: calc(1.2vw + 1vh);
     text-decoration: none;
-
+    padding-left: 36px;
+    padding-right: 36px;
     line-height: 12vh;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -76,7 +77,8 @@ nav {
 @media (orientation: portrait) {
     .homeSeg {
         line-height: 8vh;
-        width: 50vw;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .navbarSeg {
