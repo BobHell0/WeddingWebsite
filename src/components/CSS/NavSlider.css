@@ -8,7 +8,7 @@
     to {
         right: 0;
         width: 80vw;
-        font-size: 2rem;
+        font-size: calc(4vw);
     }
 }
 
@@ -22,7 +22,7 @@
     animation-duration: 1s;
 
     color: white;
-    font-size: 2rem;
+    font-size: calc(4vw);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,8 +48,8 @@
 
     animation-name: slide;
     animation-duration: 1s;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     height: 6vh;
     line-height: 6vh;
     text-align: right;
