@@ -9,9 +9,15 @@ import img2 from "../assets/images/galleryImages/pexels-pixabay-60597.jpg";
 import img3 from "../assets/images/galleryImages/pexels-yuliya-strizhkina-1198802.jpg";
 
 export default function Gallery() {
-  let headings = ["Gallery", "Wedding Details", "RSVP"].reverse();
   const imgArr = [img0, img1, img2, img3];
 
+
+  let numImages;
+  if (window.innerHeight < window.innerWidth) {
+    numImages = 2
+  } else {
+    numImages = 1
+  }
   return (
     <>
       <Navbar></Navbar>
@@ -19,7 +25,7 @@ export default function Gallery() {
         <Slide
           prevArrow={<button className="arrowStyling" id="leftArrow"></button>}
           nextArrow={<button className="arrowStyling" id="rightArrow"></button>}
-          slidesToScroll={2} slidesToShow={2}
+          slidesToScroll={numImages} slidesToShow={numImages}
         >
           {imgArr.map((item, index) => (
             <div className="each-slide-effect" key={index}>
