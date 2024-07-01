@@ -11,7 +11,7 @@ export default function Home() {
       <Title title="Dhivya and Ashantth" />
       <a href="#countdownContainer">
         {window.innerHeight < window.innerWidth && (
-          <ScrollButton rotation={0} y={-6} />
+          <ScrollButton rotation={0} y={-12} />
         )}
       </a>
       <a href="#bgContainer">

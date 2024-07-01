@@ -15,7 +15,7 @@ export default function ScrollButton({ y, rotation }: ScrollButtonProps) {
         top: `${y}vh`,
         left: "50vw",
         width: "6vh",
-        marginLeft: "-20px",
+        marginLeft: "-3vh",
         height: "6vh",
         zIndex: 2,
         border: "black 0.8px solid",
