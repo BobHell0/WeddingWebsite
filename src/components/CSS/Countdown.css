@@ -6,7 +6,8 @@
 #countdownContainer {
     position: relative;
     left: 50%;
-    margin-left: -16vw;;
+    margin-left: -16vw;
+    ;
     margin-top: 85vh;
     margin-bottom: 3vh;
 
@@ -16,39 +17,45 @@
     border: 1px rgb(179, 179, 179) solid;
     border-radius: 10px;
     font-family: unitblock;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
+    /* grid-template-columns: auto auto auto auto; */
 
 }
 
 .countdownPanel {
     position: relative;
     height: 16vh;
-    text-align: center;
-    display: inline-block;
+    width: calc(8vw + 2px);
+    height: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .countdownVal {
-    position: relative;
-    top: 20%;
-    font-size: calc(1.2vw + 1vh);
+    position: absolute;
+    top: 6vh;
+    font-size: calc(1.6vh + 0.6vw);
 }
 
-.countdownColon { 
+.flexBreak {
+    width: 100%;
+    height: 0;
+}
+
+.countdownColon {
     position: absolute;
     right: 0;
-    top: 20%;
-    font-size: calc(1.2vw + 1vh);
-    
+    top: 6vh;
+    font-size: calc(1.6vh + 0.6vw);
 }
 
 .countdownStr {
     position: absolute;
-    bottom: 20%;
-    width: 100%;
-    font-size: calc(0.8vw + 0.6vh);
-
-
+    bottom: 2vh;
+    font-size: calc(1vh + 0.4vw);
 }
 
 @media (orientation: landscape) {
@@ -68,7 +75,7 @@
         margin-bottom: 5vh;
         width: calc(64vw);
         height: 12vh;
-    
+
         border: 1px rgb(179, 179, 179) solid;
         border-radius: 10px;
     }
@@ -80,7 +87,7 @@
     }
 
     .countdownVal {
-        position: relative;
+        position: absolute;
         top: 30%;
     }
 
@@ -94,6 +101,7 @@
         bottom: 30%;
     }
 }
+
 /* 
 margin-top: 120vh;
 margin-bottom: 35vh; */

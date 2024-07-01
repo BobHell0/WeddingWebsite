@@ -47,14 +47,32 @@ export default function Countdown({ epochDeadline }: CountdownProps) {
   const NUM_UNITS = 4;
 
   return (
+    // <div id="countdownContainer">
+    //   {strArr.map((strItem, index) => (
+    //     <div className="countdownPanel" key={index}>
+    //       <span className="countdownVal">{`${valArr[index]}`}</span>
+    //       {index !== NUM_UNITS - 1 && <span className="countdownColon">:</span>}
+    //       <div className="flexBreak"></div>
+    //       <div className="countdownStr">{strItem}</div>
+    //     </div>
+    //   ))}
+    // </div>
     <div id="countdownContainer">
       {strArr.map((strItem, index) => (
-        <div className="countdownPanel" key={index}>
-          {index !== NUM_UNITS - 1 && <span className="countdownColon">:</span>}
-          <div className="countdownVal">{`${valArr[index]}`}</div>
+        <div className="countdownPanel">
+          <div className="countdownVal">{valArr[index]}</div>
+          {index < strArr.length - 1 && <div className="countdownColon">:</div>}
+          <div className="flexBreak"></div>
           <div className="countdownStr">{strItem}</div>
+
         </div>
-      ))}
+      )) 
+
+      }
+
     </div>
+
+
+
   );
 }
